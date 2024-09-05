@@ -15,8 +15,8 @@
                     TODO LIST:
                 </h1>
                     <ul>
-                        <li v-for="( toDo, index ) in toDoList" class="d-flex justify-content-around">
-                            <span :class="{'text-decoration-line-through' : toDo.done}" class="col-6"> {{toDo.item}}</span>
+                        <li v-for="( toDo, index ) in toDoList" class="d-flex justify-content-around" :key="toDo.item">
+                            <span :class="{'text-decoration-line-through' : toDo.done}" class="col-6" @click="toggleDone(toDo)"> {{toDo.item}}</span>
                             <button type="button" class="btn btn-outline-danger" @click="removeDone(index)"> X </button>
                         </li>
                     </ul>

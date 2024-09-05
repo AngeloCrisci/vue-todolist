@@ -31,8 +31,12 @@ createApp({
                 });
                 this.newTodoItem = '';
             }
+        },
+
+        toggleDone(toDo){
+            toDo.done = !toDo.done;
         }
-     }
+        }
 
 
   }).mount('#app')
