@@ -11,14 +11,19 @@
     <body>
         <div id="app">
             <section class="container">
-                <h1>
+                <h1 class="text-center">
                     TODO LIST:
                 </h1>
                     <ul>
-                        <li v-for="( {item} ) in toDoList">
-                            {{ item }}
+                        <li v-for="( toDo, index ) in toDoList" class="d-flex justify-content-around">
+                            <span :class="{'text-decoration-line-through' : toDo.done}" class="col-6"> {{toDo.item}}</span>
+                            <button type="button" class="btn btn-outline-danger" @click="removeDone(index)"> X </button>
                         </li>
                     </ul>
+                    <div class="mb-5 d-flex justify-content-center">
+                        <input @keyup.enter="addNewToDoItem" type="text" v-model="newTodoItem">
+                        <button @click='addNewToDoItem' type="button" class="btn btn-primary ms-4">Aggiungi</button>
+                    </div>
             </section>
             
               

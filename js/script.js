@@ -6,7 +6,7 @@ const { createApp } = Vue;
 createApp({
     data(){
         return {
-            NewTodoItem: {item: '', done: ''},
+            newTodoItem: '',
             toDoList: [
                 {item: 'Fare la spesa', done: true},
                 {item: 'Controllare il contatore', done: false},
@@ -19,7 +19,19 @@ createApp({
      },
 
      methods: {
-        AddDone
+        removeDone(index){
+            this.toDoList.splice(index, 1)
+        },
+
+        addNewToDoItem(){
+            if(this.newTodoItem.trim() !== ''){
+                this.toDoList.push({
+                    item: this.newTodoItem,
+                    done: false,
+                });
+                this.newTodoItem = '';
+            }
+        }
      }
 
 
